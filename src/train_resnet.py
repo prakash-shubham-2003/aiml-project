@@ -50,7 +50,8 @@ def main():
         avg_loss = running_loss / len(full_train_loader)
         print(f"Epoch {epoch+1}/{num_epochs} completed. Average Loss: {avg_loss:.4f}")
 
-        save_model(model, "models", "resnet18_emotion", epoch=epoch)
+    # Save the model only once at the end
+    save_model(model, "models", "resnet18_emotion", epoch=num_epochs)
 
     print("Training complete!")
 
