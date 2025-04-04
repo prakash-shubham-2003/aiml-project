@@ -26,10 +26,3 @@ Model loaded successfully.
 Test Loss: 2.2992
 Test Accuracy: 54.26%
 -*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-
-
-Evaluating ResNetEmotion at /content/aiml-project/models/resnet18_emotion_epoch20.pth
--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-
-Model loaded successfully.
-Test Loss: 1.7058
-Test Accuracy: 31.76%
--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-
