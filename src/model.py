@@ -102,6 +102,14 @@ class ResNetEmotion(nn.Module):
             nn.Dropout(0.3),
             nn.Linear(256, num_classes)
         )
+        for param in self.resnet.parameters():
+            param.requires_grad = False
+
+        for param in self.resnet.conv1.parameters():
+            param.requires_grad = True
+
+        for param in self.resnet.fc.parameters():
+            param.requires_grad = True
 
     def forward(self, x):
         return self.resnet(x)
