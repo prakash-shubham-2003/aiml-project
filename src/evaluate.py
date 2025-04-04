@@ -1,12 +1,26 @@
 import os
+import sys
 import torch
 import torch.nn as nn
 from sklearn.metrics import accuracy_score
 from data_loader import load_data
 from utils import load_model, get_device
+import warnings
 
+# Suppress warnings
+warnings.filterwarnings('ignore')
+
+# Set up logging to log file
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+results_dir = os.path.join(PROJECT_ROOT, 'results')
+os.makedirs(results_dir, exist_ok=True)
+log_file_path = os.path.join(results_dir, 'evaluation_log.txt')
+
+# Open the log file for writing and redirect stdout and stderr
+log_file = open(log_file_path, 'w')
+sys.stdout = log_file
+sys.stderr = log_file  # Redirect stderr to the same log file
 
 def evaluate(model_path, model_type):
     """
@@ -52,10 +66,10 @@ def evaluate(model_path, model_type):
 
 if __name__ == '__main__':
     models_to_evaluate = [
-        # (os.path.join(PROJECT_ROOT, 'models', 'model1.pth'), 'model1'),
-        # (os.path.join(PROJECT_ROOT, 'models', 'model2.pth'), 'model2'),
-        # (os.path.join(PROJECT_ROOT, 'models', 'model3.pth'), 'model3'),
-        # (os.path.join(PROJECT_ROOT, 'models', 'resnet18_emotion_epoch15.pth'), 'ResNetEmotion'),
+        (os.path.join(PROJECT_ROOT, 'models', 'model1.pth'), 'model1'),
+        (os.path.join(PROJECT_ROOT, 'models', 'model2.pth'), 'model2'),
+        (os.path.join(PROJECT_ROOT, 'models', 'model3.pth'), 'model3'),
+        (os.path.join(PROJECT_ROOT, 'models', 'resnet18_emotion_epoch15.pth'), 'ResNetEmotion'),
         (os.path.join(PROJECT_ROOT, 'models', 'resnet18_emotion_epoch20.pth'), 'ResNetEmotion')
     ]
     
@@ -67,3 +81,6 @@ if __name__ == '__main__':
         except Exception as e:
             print(f"Error evaluating {model_type}: {str(e)}")
         print("-*-" * 20)
+
+    # Close the log file after writing all output
+    log_file.close()

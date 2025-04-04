@@ -1,0 +1,35 @@
+
+Evaluating model1 at /content/aiml-project/models/model1.pth
+-*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-
+Model loaded successfully.
+Test Loss: 2.0174
+Test Accuracy: 43.59%
+-*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-
+
+Evaluating model2 at /content/aiml-project/models/model2.pth
+-*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-
+Model loaded successfully.
+Test Loss: 2.5103
+Test Accuracy: 54.69%
+-*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-
+
+Evaluating model3 at /content/aiml-project/models/model3.pth
+-*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-
+Model loaded successfully.
+Test Loss: 1.1161
+Test Accuracy: 58.54%
+-*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-
+
+Evaluating ResNetEmotion at /content/aiml-project/models/resnet18_emotion_epoch15.pth
+-*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-
+Model loaded successfully.
+Test Loss: 2.2992
+Test Accuracy: 54.26%
+-*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-
+
+Evaluating ResNetEmotion at /content/aiml-project/models/resnet18_emotion_epoch20.pth
+-*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-
+Model loaded successfully.
+Test Loss: 1.7058
+Test Accuracy: 31.76%
+-*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-
