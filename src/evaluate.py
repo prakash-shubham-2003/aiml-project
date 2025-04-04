@@ -52,10 +52,11 @@ def evaluate(model_path, model_type):
 
 if __name__ == '__main__':
     models_to_evaluate = [
-        (os.path.join(PROJECT_ROOT, 'models', 'model1.pth'), 'model1'),
-        (os.path.join(PROJECT_ROOT, 'models', 'model2.pth'), 'model2'),
-        (os.path.join(PROJECT_ROOT, 'models', 'model3.pth'), 'model3'),
-        (os.path.join(PROJECT_ROOT, 'models', 'resnet18_emotion_epoch15.pth'), 'ResNetEmotion')
+        # (os.path.join(PROJECT_ROOT, 'models', 'model1.pth'), 'model1'),
+        # (os.path.join(PROJECT_ROOT, 'models', 'model2.pth'), 'model2'),
+        # (os.path.join(PROJECT_ROOT, 'models', 'model3.pth'), 'model3'),
+        # (os.path.join(PROJECT_ROOT, 'models', 'resnet18_emotion_epoch15.pth'), 'ResNetEmotion'),
+        (os.path.join(PROJECT_ROOT, 'models', 'resnet18_emotion_epoch20.pth'), 'ResNetEmotion')
     ]
     
     for model_path, model_type in models_to_evaluate:

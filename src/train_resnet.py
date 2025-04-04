@@ -1,4 +1,4 @@
-import os
+import os, torch
 import torch.optim as optim
 import torch.nn as nn
 from data_loader import load_data
@@ -32,6 +32,8 @@ def main():
     for epoch in range(num_epochs):
         model.train()
         running_loss = 0.0
+        correct_predictions = 0
+        total_predictions = 0
 
         with tqdm(total=len(full_train_loader), desc=f"Epoch {epoch+1}/{num_epochs}", unit="batch") as pbar:
             for inputs, labels in full_train_loader:
@@ -44,11 +46,17 @@ def main():
                 optimizer.step()
 
                 running_loss += loss.item()
+
+                _, predicted = torch.max(outputs, 1)
+                correct_predictions += (predicted == labels).sum().item()
+                total_predictions += labels.size(0)
+
                 pbar.set_postfix(loss=loss.item())
                 pbar.update(1)
 
         avg_loss = running_loss / len(full_train_loader)
-        print(f"Epoch {epoch+1}/{num_epochs} completed. Average Loss: {avg_loss:.4f}")
+        train_accuracy = correct_predictions / total_predictions * 100
+        print(f"Epoch {epoch+1}/{num_epochs} completed. Average Loss: {avg_loss:.4f}, Train Accuracy: {train_accuracy:.2f}%")
 
     # Save the model only once at the end
     save_model(model, "models", "resnet18_emotion", epoch=num_epochs)
