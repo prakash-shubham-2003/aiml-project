@@ -1,40 +1,46 @@
-# Emotion Recognition with Convolutional Neural Networks
+# Facial Emotion Detection
 
-This project implements a series of convolutional neural network (CNN) models to perform emotion recognition on the FER-2013 dataset. The models are trained to classify images into one of seven emotion categories.
+This project focuses on building and evaluating deep learning models for emotion recognition using the FER-2013 dataset. The models are trained to classify facial expressions into one of seven emotion categories: Angry, Disgust, Fear, Happy, Sad, Surprise, and Neutral.
 
-## Project Structure
+## Features
+- Training multiple models (e.g., model1, model2, model3, ResNetEmotion) with customizable hyperparameters.
+- Evaluation of trained models on a test dataset with metrics like accuracy and loss.
+- Prediction of emotions from input images using trained models.
 
-- `src/model.py`: Contains the definitions of three CNN models (`model1`, `model2`, `model3`) and additional building blocks (`ConvolutionBlock`, `DenseBlock`) used in `model3`.
-- `src/train.py`: Script for training the models. It loads the data, trains each model, and saves the trained model weights.
-- `src/evaluate.py`: Script for evaluating the trained models on a test dataset. It loads the model weights and computes the test accuracy and loss.
-- `src/data_loader.py`: Contains the `load_data` function, which loads and preprocesses the FER-2013 dataset.
+## How to Predict Emotions
 
-## Models
+Follow these steps to predict emotions from an image:
 
-- **model1**: A simple CNN with one convolutional layer followed by two fully connected layers.
-- **model2**: A deeper CNN with three convolutional layers and two fully connected layers.
-- **model3**: A modular CNN using custom `ConvolutionBlock` and `DenseBlock` classes for more flexibility and depth.
+1. **Prepare the Environment**
+   - Ensure you have all the required dependencies installed. You can install them using:
+     ```bash
+     pip install -r requirements.txt
+     ```
 
-## Requirements
+2. **Prepare the Model**
+   - Train the model using the provided training scripts (`train.py` or `train_resnet.py`) or use pre-trained models available in the `models` directory.
 
-- Python 3.x
-- PyTorch
-- torchvision
-- scikit-learn
-- tqdm
+3. **Run the Prediction Script**
+   - Use the `predict.py` script to predict the emotion of an image. Run the following command:
+     ```bash
+     python src/predict.py <image_path> --model_path <model_path> --model_type <model_type>
+     ```
+     - `<image_path>`: Path to the image file.
+     - `<model_path>`: Path to the trained model file (default: `models/model3.pth`).
+     - `<model_type>`: Type of model to use (e.g., `model1`, `model2`, `model3`, `ResNetEmotion`).
 
-## Usage
+4. **Example Command**
+   ```bash
+   python src/predict.py data/sample_image.jpg --model_path models/model3.pth --model_type model3
+   ```
 
-### Training
+   The script will output the predicted emotion label, e.g., `Predicted Emotion: Happy`.
 
-To train the models, run the `train.py` script. This will train each model and save the weights to the `models` directory.
+## Directory Structure
+- `src/`: Contains the source code for training, evaluation, and prediction.
+- `models/`: Directory to store trained model files.
+- `data/`: Directory for datasets and preprocessed data.
+- `results/`: Directory for evaluation logs and results.
 
-### Evaluation
-
-To evaluate the models, run the `evaluate.py` script. This will load the saved model weights and evaluate them on the test dataset.
-
-## Data
-
-The FER-2013 dataset should be organized in the following structure:
-
-Each subdirectory (`train`, `val`, `test`) should contain subdirectories for each emotion class, with images inside.
+## License
+This project is licensed under the MIT License.
