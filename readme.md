@@ -41,6 +41,3 @@ Follow these steps to predict emotions from an image:
 - `models/`: Directory to store trained model files.
 - `data/`: Directory for datasets and preprocessed data.
 - `results/`: Directory for evaluation logs and results.
-
-## License
-This project is licensed under the MIT License.
