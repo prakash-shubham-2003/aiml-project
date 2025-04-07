@@ -62,3 +62,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
     emotion = predict(args.image_path, args.model_path, args.model_type)
     print(f"Predicted Emotion: {emotion}")
+
+'''
+a1 = "/Users/shubhamprakash/Documents/random-stuff/aiml-project/data/preprocessed_datasets/FER_2013/train/angry/Training_143373.jpg"
+a2 = "/Users/shubhamprakash/Documents/random-stuff/aiml-project/data/preprocessed_datasets/FER_2013/train/happy/Training_109676.jpg"
+'''
